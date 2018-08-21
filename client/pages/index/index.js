@@ -17,7 +17,9 @@ Page({
 
         util.showBusy('正在登录')
 
-        const session = qcloud.Session.get()
+        const session = qcloud.Session.get();
+
+        console.log(session);
 
         if (session) {
             // 第二次登录
@@ -35,6 +37,7 @@ Page({
             })
         } else {
             // 首次登录
+            // qcloud.setLoginUrl(config.service.loginUrl);
             qcloud.login({
                 success: res => {
                     this.setData({ userInfo: res, logged: true })

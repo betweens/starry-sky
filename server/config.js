@@ -42,4 +42,6 @@ const CONF = {
     wxMessageToken: 'abcdefgh'
 }
 
-module.exports = CONF
+//module.exports = CONF
+
+module.exports = process.env.NODE_ENV === 'development' ? Object.assign({}, CONF, require('./config.local')) : CONF;

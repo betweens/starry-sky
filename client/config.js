@@ -3,8 +3,9 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://4ka9f4kc.qcloud.la';
+//var host = 'https://4ka9f4kc.qcloud.la';
 
+var host ='http://localhost:5757';
 var config = {
 
     // 下面的地址配合云端 Demo 工作
@@ -21,7 +22,7 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`
+        uploadUrl: `${host}/weapp/upload`,
     }
 };
 

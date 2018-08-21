@@ -14,7 +14,7 @@ Page({
         var that = this
         qcloud.request({
             url: `${config.service.host}/weapp/demo`,
-            login: false,
+            login: true,
             success (result) {
                 util.showSuccess('请求成功完成')
                 that.setData({
@@ -22,7 +22,7 @@ Page({
                 })
             },
             fail (error) {
-                util.showModel('请求失败', error);
+                util.showModel('请求失败', error.message);
                 console.log('request fail', error);
             }
         })
