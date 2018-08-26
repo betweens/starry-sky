@@ -1,0 +1,5 @@
+<!--pages/demo.wxml-->
+<text>pages/demo.wxml</text>
+<block wx:for="{{items}}" wx:for-item="item" wx:key="index">
+<view>{{index}}:{{item.name}}</view>
+</block>
