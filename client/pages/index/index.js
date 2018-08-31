@@ -7,7 +7,7 @@ Page({
     data: {
         userInfo: {},
         logged: false,
-        takeSession: false,
+        takeSession: true,
         requestResult: ''
     },
 
@@ -37,7 +37,6 @@ Page({
             })
         } else {
             // 首次登录
-            // qcloud.setLoginUrl(config.service.loginUrl);
             qcloud.login({
                 success: res => {
                     this.setData({ userInfo: res, logged: true })
@@ -67,7 +66,7 @@ Page({
             login: true,
             success (result) {
                 util.showSuccess('请求成功完成')
-                console.log('request success', result)
+                console.log('request success', result.data)
                 that.setData({
                     requestResult: JSON.stringify(result.data)
                 })

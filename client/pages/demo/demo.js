@@ -5,38 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [{
-      name: '123',
-    }, {
-        name: '456',
-      }, {
-        name: '789',
-      }, {
-        name: 'abc',
-      }, {
-        name: 'def',
-      }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var viewport = wx.getSystemInfoSync();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log('监听页面显示'); 
+  },
+ 
+  // 选择图片
+  selectImg: function() {
+    console.log('选择图片');
+    var self = this;
+    wx.chooseImage({
+      success: function (res) {
+        self.context.drawImage(res.tempFilePaths[0], 0, 0, 320, 504,0,0)
+        self.context.draw()
+      }
+    })
   },
 
   /**

@@ -12,5 +12,6 @@
 	},
 	"appid": "wxd61e99af62aba2ad",
 	"projectname": "starry-sky",
+	"compileType": "miniprogram",
 	"condition": {}
 }
