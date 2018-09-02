@@ -11,14 +11,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var viewport = wx.getSystemInfoSync();
+    console.log(viewport);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var viewport = wx.getSystemInfoSync();
+    this.audioCtx = wx.createAudioContext('myAudio');
+    // this.audioCtx.play();
   },
 
   /**
@@ -26,6 +28,11 @@ Page({
    */
   onShow: function () {
     console.log('监听页面显示'); 
+  },
+  onGotUserInfo: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
   },
  
   // 选择图片

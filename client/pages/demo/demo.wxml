@@ -1,2 +1,6 @@
 <!--pages/demo.wxml-->
-<canvas canvas-id="firstCanvas" id="firstCanvas"></canvas>
+<view class='container'>
+<!-- <audio src="https://m10.music.126.net/20180902160549/ba33dd418412e33855f4a320adda4fde/ymusic/534d/12e3/11d8/eb843de06316340562b81988e66f7fb8.mp3" id="myAudio"  loop></audio> -->
+
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+</view>
