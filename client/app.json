@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/demo/demo",
-    "pages/index/index",
-    "pages/addCgi/addCgi"
+    "pages/home/home",
+    "pages/setting/setting",
+    "pages/detail/detail"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "starry-sky",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   }
 }

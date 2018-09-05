@@ -1,50 +1,32 @@
-// pages/demo.js
+// pages/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var viewport = wx.getSystemInfoSync();
-    console.log(viewport);
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.audioCtx = wx.createAudioContext('myAudio');
-    // this.audioCtx.play();
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('监听页面显示'); 
-  },
-  onGotUserInfo: function (e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
-  },
- 
-  // 选择图片
-  selectImg: function() {
-    console.log('选择图片');
-    var self = this;
-    wx.chooseImage({
-      success: function (res) {
-        self.context.drawImage(res.tempFilePaths[0], 0, 0, 320, 504,0,0)
-        self.context.draw()
-      }
-    })
+  
   },
 
   /**

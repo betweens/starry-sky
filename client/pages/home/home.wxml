@@ -1,0 +1,67 @@
+<!--pages/home/home.wxml-->
+<!--导航栏  -->
+<form report-submit bindsubmit='toTopHandler'>
+  <button form-type='submit'>
+    <view class='navigator' style='padding-top:{{STATUSBAR_HEIGHT}}px;background-color:rgba(3, 169, 244, {{opacity}});'>
+      <!--左边按钮  -->
+      <view class='leftButton' hover-class='hover-class' bindtap='gotoSetting'>
+        <image src='/assets/setting.svg'></image>
+      </view>
+      <!--中间标题  -->
+      <view class='title'>
+        <text>starry-sky</text>
+      </view>
+      <!--右边间隙  -->
+    </view>
+  </button>
+</form>
+
+<!--加载中  -->
+<view class='loading-container' wx:if="{{LOADING}}">
+  <text class='loading-title'>starry-sky</text>
+</view>
+
+<scroll-view
+  scroll-y
+  bindscroll="scrollHandler"
+  scroll-with-animation
+  class="scroll-box"
+  scroll-top="{{SCROLL_TOP}}"
+  wx:else>
+  <!--顶部图片  -->
+  <image src='{{first.img_url}}' class='header_image'></image>
+  <!--顶部文字  -->
+  <view class='header_text'> <text>复杂的世界里，一个就够了</text></view>
+  <!--第一张卡片内容  -->
+  <view class='first_card' hover-class='hover-class' bindtap='gotoDetail'>
+    <!--vol标题  -->
+    <view class='first_title_box'>
+      <text>{{first.title}}</text>
+    </view>
+    <view class='first_content_box'>
+      <text>{{first.content}}</text>
+    </view>
+    <!--作者  -->
+    <view class='first_author_box'>
+      <text>—— {{first.text_authors}}</text>
+    </view>
+  </view>
+
+    <!--其他内容  -->
+  <block wx:for="{{item}}" wx:key="{{id}}">
+    <view class='other_card' hover-class='hover-class'>
+      <!--标题  -->
+      <view class='other_title_box'>
+        <text>{{item.title}}</text>
+      </view>
+      <!--内容  -->
+      <view class='other_content_box'>
+        <text>{{item.content}}</text>
+      </view>
+      <!--作者  -->
+      <view class='other_author_box' wx:if="{{false}}">
+        <text>{{item.text_authors}}</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>
