@@ -48,7 +48,7 @@
   </view>
 
     <!--其他内容  -->
-  <block wx:for="{{item}}" wx:key="{{id}}">
+  <block wx:for="{{item}}" wx:key="id">
     <view class='other_card' hover-class='hover-class'>
       <!--标题  -->
       <view class='other_title_box'>
