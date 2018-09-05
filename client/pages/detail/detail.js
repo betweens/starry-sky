@@ -35,11 +35,11 @@ Page({
     this.setData({
       LOADING: false,
       data: {
-        title: 'fdfd',
+        title: '胡明飞',
         picture_author: '胡明飞',
         content: '虽然字母顺序变了，但是选择项没有变虽然字母顺序变了，但是选择项没有变虽然字母顺序变了，但是选择项没有变',
         text_authors: 'lalal',
-        img_url: 'http://bpic.588ku.com/back_pic/03/72/92/6657b9a240d3d1f.jpg!r850/fw/800'
+        img_url: 'http://pic.oh100.com/allimg/201612/3957-16121314125cb.png?x-oss-process=style/qr.oh100'
       }
     })
   },
