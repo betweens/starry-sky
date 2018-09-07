@@ -1,11 +1,12 @@
 // pages/setting/setting.js
+var INFO = wx.getSystemInfoSync();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    STATUSBAR_HEIGHT: INFO.statusBarHeight
   },
 
   /**
@@ -43,11 +44,8 @@ Page({
   
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  goBackHandler: function () {
+    wx.navigateBack();
   },
 
   /**

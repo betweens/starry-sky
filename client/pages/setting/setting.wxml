@@ -1,2 +1,30 @@
-<!--pages/setting/setting.wxml-->
-<text>pages/setting/setting.wxml</text>
+<view class='background'></view>
+
+<!--导航栏  -->
+<form report-submit bindsubmit='addPushHandler'>
+  <button form-type='submit'>
+    <view class='navigator' style='padding-top:{{STATUSBAR_HEIGHT}}px;'>
+      <!--左边按钮  -->
+      <view class='leftButton' hover-class='hover-class' bindtap='goBackHandler'>
+        <image src='/assets/back.svg'></image>
+      </view>
+      <!--中间标题  -->
+      <view class='title'>
+        <text>开源</text>
+      </view>
+      <!--右边间隙  -->
+    </view>
+  </button>
+</form>
+
+<!-- 主题内容 -->
+<view class='container' style='padding-top: {{STATUSBAR_HEIGHT+44}}px;'>
+  <!--logo  -->
+  <view class='header'>
+    <text>复杂的世界里，一个就够了</text>
+  </view>
+  <view class='separator' />
+  <view class='body'>
+    <text>本小程序数据来源于网络开放API接口。如涉及侵权，请及时联系本人。\n代码以及UI素材都已全部进行开源，欢迎您的研究参与与探讨学习！</text>
+  </view>
+</view>

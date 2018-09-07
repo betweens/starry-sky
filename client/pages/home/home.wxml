@@ -33,7 +33,7 @@
   <!--顶部文字  -->
   <view class='header_text'> <text>复杂的世界里，一个就够了</text></view>
   <!--第一张卡片内容  -->
-  <view class='first_card' hover-class='hover-class' bindtap='gotoDetail'>
+  <view class='first_card' hover-class='hover-class' bindtap='gotoDetail' data-objectId="{{first.objectId}}">
     <!--vol标题  -->
     <view class='first_title_box'>
       <text>{{first.title}}</text>
@@ -43,13 +43,13 @@
     </view>
     <!--作者  -->
     <view class='first_author_box'>
-      <text>—— {{first.text_authors}}</text>
+      <text>—— {{first.auther}}</text>
     </view>
   </view>
 
     <!--其他内容  -->
   <block wx:for="{{item}}" wx:key="id">
-    <view class='other_card' hover-class='hover-class'>
+    <view class='other_card' hover-class='hover-class' bindtap='gotoDetail' data-objectId="{{item.objectId}}">
       <!--标题  -->
       <view class='other_title_box'>
         <text>{{item.title}}</text>
@@ -60,7 +60,7 @@
       </view>
       <!--作者  -->
       <view class='other_author_box' wx:if="{{false}}">
-        <text>{{item.text_authors}}</text>
+        <text>{{item.auther}}</text>
       </view>
     </view>
   </block>

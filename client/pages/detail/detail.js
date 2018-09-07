@@ -25,23 +25,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var self = this;
+    const { objectId } = options;
+    this.getDataById(objectId).then(function(data){
+      self.setData({
+        LOADING: false,
+        data: {
+          title: data.title,
+          picture_author: data.author,
+          content: data.content,
+          text_authors: '胡明飞',
+          img_url: 'http://pic.oh100.com/allimg/201612/3957-16121314125cb.png?x-oss-process=style/qr.oh100'
+        }
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setData({
-      LOADING: false,
-      data: {
-        title: '胡明飞',
-        picture_author: '胡明飞',
-        content: '虽然字母顺序变了，但是选择项没有变虽然字母顺序变了，但是选择项没有变虽然字母顺序变了，但是选择项没有变',
-        text_authors: 'lalal',
-        img_url: 'http://pic.oh100.com/allimg/201612/3957-16121314125cb.png?x-oss-process=style/qr.oh100'
-      }
-    })
+
   },
 
   /**
@@ -49,6 +53,21 @@ Page({
    */
   onShow: function () {
   
+  },
+
+  getDataById(objectId) {
+    return new Promise((RES, REJ) => {
+      const datas = wx.getStorageSync('datas');
+      if (datas) {
+        var data = {};
+        datas.map(d => {
+          if (d.objectId === objectId) data = d;
+        });
+        RES(data);
+      } else {
+        REJ();
+      }
+    })
   },
 
   /**

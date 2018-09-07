@@ -1,11 +1,14 @@
 // pages/home/home.js
+var qcloud = require('../../vendor/wafer2-client-sdk/index');
+var config = require('../../config');
+var util = require('../../utils/util.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    data: [],
     first: [],
     opacity: 0,
     LOADING: true,
@@ -17,38 +20,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setData({
-      LOADING: false,
-      first: {
-        title: '凌晨三点',
-        content: '如果当初少些固执，会不会有更好的结局',
-        text_authors: '陈硕子',
-        img_url: 'https://lg-flxo7qlo-1256588190.cos.ap-shanghai.myqcloud.com/11.png'
+    var options = {
+      url: config.service.getEasayList,
+      login: true,
+      success: (result) => {
+       // console.log(result.data.shift());
+        wx.setStorageSync('datas', result.data);
+        this.setData({
+          LOADING: false,
+          first: result.data.shift(),
+          item: result.data
+        })
       },
-      item: [{
-        id: 1,
-        title: '凌晨三点',
-        content: '如果当初少些固执，会不会有更好的结局',
-        text_authors: '陈硕子',
-      }, {
-          id: 2,
-          title: '凌晨三点',
-          content: '如果当初少些固执，会不会有更好的结局',
-          text_authors: '陈硕子',
-        }, {
-          id: 3,
-          title: '凌晨三点',
-          content: '如果当初少些固执，会不会有更好的结局',
-          text_authors: '陈硕子',
-        }]
-    })
+      fail(error) {
+        console.log('request fail', error);
+      }
+    }
+    wx.request(options);
   },
 
   /**
@@ -73,9 +68,11 @@ Page({
     }
   },
   // 详情页面
-  gotoDetail() {
+  gotoDetail(e) {
+    var objectId  = e.currentTarget.dataset.objectid;
+    console.log(e.currentTarget);
     wx.navigateTo({
-      url: '/pages/detail/detail',
+      url: '/pages/detail/detail?objectId='+objectId,
     })
   },
   // 设置页面
