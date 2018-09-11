@@ -16,7 +16,7 @@ const insertEasayData = async (params) => {
   try {
     const result = await mysql('essay').insert({
       objectId: objectid().toString(), 
-      openId: '6845454545445',
+      openId: params.openId,
       auther: params.auther,
       title:  params.title,
       content: params.content,

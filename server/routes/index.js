@@ -34,6 +34,6 @@ router.post('/message', controllers.message.post);
 
 router.get('/getEasayList', controllers.getEasayList);
 
-router.post('/addEasay', controllers.addEasay)
+router.post('/addEasay', validationMiddleware, controllers.addEasay)
 
 module.exports = router
