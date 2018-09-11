@@ -1,3 +1,4 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index');
 var config = require('../../config')
 var util = require('../../utils/util.js');
 var INFO = wx.getSystemInfoSync();
@@ -80,6 +81,7 @@ Page({
   submitStoryData: function(params) {
     console.log(params);
     var options = {
+      login: true,
       method: 'POST',
       url: config.service.addEasay,
       login: true,
@@ -92,7 +94,7 @@ Page({
         console.log('request fail', error);
       }
     }
-    wx.request(options);
+    qcloud.request(options);
   },
   // 上传图片
   uploadImg: function(img_url) {

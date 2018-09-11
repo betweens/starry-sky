@@ -84,29 +84,27 @@ Page({
 
   // 添加页面
   goToAddpaeg: function() {
-
-    util.showBusy('正在登录')
-
     const session = qcloud.Session.get();
-
-    console.log(session);
-
     if (session) {
       // 第二次登录
       // 或者本地已经有登录态
       // 可使用本函数更新登录态
-      qcloud.loginWithCode({
-        success: res => {
-          this.setData({ userInfo: res, logged: true })
-          util.showSuccess('登录成功')
-        },
-        fail: err => {
-          console.error(err)
-          util.showModel('登录错误', err.message)
-        }
+      // qcloud.loginWithCode({
+      //   success: res => {
+      //     this.setData({ userInfo: res, logged: true })
+      //     util.showSuccess('登录成功')
+      //   },
+      //   fail: err => {
+      //     console.error(err)
+      //     util.showModel('登录错误', err.message)
+      //   }
+      // })
+      wx.navigateTo({
+        url: '/pages/addStory/addStory',
       })
     } else {
       // 首次登录
+      util.showBusy('正在登录')
       qcloud.login({
         success: res => {
           this.setData({ userInfo: res, logged: true })
@@ -118,10 +116,6 @@ Page({
         }
       })
     }
-    
-    // wx.navigateTo({
-    //   url: '/pages/addStory/addStory',
-    // })
   },
   /**
    * 生命周期函数--监听页面隐藏
