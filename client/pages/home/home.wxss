@@ -154,3 +154,11 @@
   color: #FFF;
   font-weight: 500;
 }
+
+.add-story {
+  position: fixed;
+  right: 40rpx;
+  bottom: 40rpx;
+  height: 60rpx;
+  width: 60rpx; 
+}

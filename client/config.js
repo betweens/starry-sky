@@ -23,8 +23,10 @@ var config = {
 
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`,
-      // 获取文章列表
+        // 获取文章列表
        getEasayList: `${host}/weapp/getEasayList`,
+       // 增加一条信息
+       addEasay:`${host}/weapp/addEasay`, 
     }
 };
 

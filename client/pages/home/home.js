@@ -31,13 +31,14 @@ Page({
       url: config.service.getEasayList,
       login: true,
       success: (result) => {
-       // console.log(result.data.shift());
+        console.log(result.data);
         wx.setStorageSync('datas', result.data);
         this.setData({
           LOADING: false,
           first: result.data.shift(),
           item: result.data
         })
+        console.log(this.data.first);
       },
       fail(error) {
         console.log('request fail', error);
@@ -50,12 +51,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(this.data.first);
   },
 
   scrollHandler: function (e) {
     var { scrollTop } = e.detail;
-    console.log(scrollTop);
     // 计算透明度
     var opacity = parseFloat(scrollTop / 250).toFixed(2);
     if (opacity > 1) opacity = 1;
@@ -80,6 +80,48 @@ Page({
     wx.navigateTo({
       url: '/pages/setting/setting',
     })
+  },
+
+  // 添加页面
+  goToAddpaeg: function() {
+
+    util.showBusy('正在登录')
+
+    const session = qcloud.Session.get();
+
+    console.log(session);
+
+    if (session) {
+      // 第二次登录
+      // 或者本地已经有登录态
+      // 可使用本函数更新登录态
+      qcloud.loginWithCode({
+        success: res => {
+          this.setData({ userInfo: res, logged: true })
+          util.showSuccess('登录成功')
+        },
+        fail: err => {
+          console.error(err)
+          util.showModel('登录错误', err.message)
+        }
+      })
+    } else {
+      // 首次登录
+      qcloud.login({
+        success: res => {
+          this.setData({ userInfo: res, logged: true })
+          util.showSuccess('登录成功')
+        },
+        fail: err => {
+          console.error(err)
+          util.showModel('登录错误', err.message)
+        }
+      })
+    }
+    
+    // wx.navigateTo({
+    //   url: '/pages/addStory/addStory',
+    // })
   },
   /**
    * 生命周期函数--监听页面隐藏

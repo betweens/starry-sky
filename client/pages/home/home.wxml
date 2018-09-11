@@ -64,4 +64,6 @@
       </view>
     </view>
   </block>
+  <image src='../../assets/add.svg'  class='add-story' bindtap='goToAddpaeg'></image>
+  <button class="userinfo-nickname" open-type="getUserInfo" bindgetuserinfo="goToAddpaeg">点击测试登录接口</button>
 </scroll-view>

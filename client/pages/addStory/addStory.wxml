@@ -1,0 +1,75 @@
+<!--pages/addStory.wxml-->
+<!--导航栏  -->
+<form report-submit bindsubmit='toTopHandler'>
+  <button form-type='submit'>
+    <view class='navigator' style='padding-top:{{STATUSBAR_HEIGHT}}px;background-color: rgba(3, 169, 244, {{opacity}});'>
+      <!--左边按钮  -->
+      <view class='leftButton' hover-class='hover-class' bindtap='goHomeHandler' wx:if="{{IS_SHARE_PAGE}}">
+        <image src='/assets/home.svg'></image>
+      </view>
+      <view class='leftButton' hover-class='hover-class' bindtap='goBackHandler' wx:else>
+        <image src='/assets/back.svg'></image>
+      </view>
+      <!--中间标题  -->
+      <view class='title'>
+        <text>添加一个故事</text>
+      </view>
+      <!--右边间隙  -->
+    </view>
+  </button>
+</form>
+<view class="add-page">
+ <form bindsubmit="bindFormSubmit">
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">标题</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入标题" name="title"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">作者</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入歌曲作者" name="auther"/>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content"/>
+          <view class="weui-textarea-counter">0/200</view>
+      </view>
+    </view>   
+ 
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <view class="weui-uploader__title">图片上传</view>
+                    <view class="weui-uploader__info">{{img_url.length}}/1</view>
+                </view>
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                        <block wx:for="{{img_url}}" wx:key="*this">
+                            <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                            </view>
+                        </block>
+                    </view>
+                    <view class="weui-uploader__input-box">
+                        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view> 
+ 
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+          <button form-type="submit" class="weui-btn" type="primary"> 提交 </button>
+      </view>
+    </view>
+   </form>
+</view>

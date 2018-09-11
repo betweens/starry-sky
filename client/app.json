@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/addStory/addStory",
     "pages/setting/setting",
     "pages/detail/detail"
   ],

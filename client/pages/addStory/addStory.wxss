@@ -1,0 +1,43 @@
+.add-page {
+  margin-top: 80px;
+}
+.navigator {
+  background-color: rgba(3, 169, 244, 0);
+  height: 44px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+}
+.leftButton {
+  width: 50px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftButton > image {
+  width: 25px;
+  height: 25px;
+}
+.title {
+  height: 44px;
+  margin-right: 50px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title > text {
+  font-size: 16px;
+  color: #FFF;
+  font-weight: 500;
+}
+
+.header_image {
+  width: 100%;
+  height: 250px;
+}
