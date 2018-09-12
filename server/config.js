@@ -21,7 +21,7 @@ const CONF = {
         port: 3306,
         user: 'root',
         db: 'cAuth',
-        pass: process.env.NODE_ENV === 'development' ? 'wxd61e99af62aba2ad' : 'h147852369',
+        pass: 'h147852369',
         char: 'utf8mb4'
     },
 
