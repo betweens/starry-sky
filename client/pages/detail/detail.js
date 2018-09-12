@@ -28,14 +28,15 @@ Page({
     const { objectId } = options;
     this.getDataById(objectId).then(function(data){
       const dateObj = new Date(data.createTime);
+      console.log(data);
       self.setData({
         LOADING: false,
         date: [dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate()],
         data: {
           title: data.title,
-          picture_author: data.author,
+          picture_author: data.auther,
           content: data.content,
-          text_authors: '胡明飞',
+          text_authors: data.auther,
           img_url: data.img_url,
         }
       })
