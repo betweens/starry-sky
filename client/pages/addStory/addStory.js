@@ -89,6 +89,9 @@ Page({
       success: (result) => {
         console.log(result.data);
         util.hideLoading();
+        wx.redirectTo({
+          url: '/pages/home/home'
+        })
       },
       fail(error) {
         console.log('request fail', error);

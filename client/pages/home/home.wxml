@@ -31,7 +31,7 @@
   <!--顶部图片  -->
   <image src='{{first.img_url}}' class='header_image'></image>
   <!--顶部文字  -->
-  <view class='header_text'> <text>复杂的世界里，一个就够了</text></view>
+  <view class='header_text'> <text>一首歌，一段故事</text></view>
   <!--第一张卡片内容  -->
   <view class='first_card' hover-class='hover-class' bindtap='gotoDetail' data-objectId="{{first.objectId}}">
     <!--vol标题  -->
@@ -64,5 +64,5 @@
       </view>
     </view>
   </block>
-  <button class="add-story" open-type="getUserInfo" bindgetuserinfo="goToAddpaeg"></button>
+  <button class="add-story" open-type="getUserInfo" bindgetuserinfo="userLogin"></button>
 </scroll-view>

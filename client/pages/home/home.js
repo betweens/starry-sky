@@ -26,19 +26,19 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  // onReady: function () {
+
+  // },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var options = {
       url: config.service.getEasayList,
       login: true,
       success: (result) => {
-        console.log(result.data);
-        wx.setStorageSync('datas', result.data);
-        this.setData({
-          LOADING: false,
-          first: result.data.shift(),
-          item: result.data
-        })
-        console.log(this.data.first);
+        this.renderHomePage(result);
       },
       fail(error) {
         console.log('request fail', error);
@@ -46,14 +46,16 @@ Page({
     }
     wx.request(options);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    console.log(this.data.first);
+  // 渲染页面
+  renderHomePage: function (result) {
+    wx.clearStorageSync();
+    wx.setStorageSync('datas', result.data);
+    this.setData({
+      LOADING: false,
+      first: result.data.shift(),
+      item: result.data
+    })
   },
-
   scrollHandler: function (e) {
     var { scrollTop } = e.detail;
     // 计算透明度
@@ -82,8 +84,8 @@ Page({
     })
   },
 
-  // 添加页面
-  goToAddpaeg: function() {
+  // 登录
+  userLogin: function() {
     const session = qcloud.Session.get();
     if (session) {
       // 第二次登录
@@ -99,16 +101,14 @@ Page({
       //     util.showModel('登录错误', err.message)
       //   }
       // })
-      wx.navigateTo({
-        url: '/pages/addStory/addStory',
-      })
+      this.goToAddPage();
     } else {
       // 首次登录
       util.showBusy('正在登录')
       qcloud.login({
         success: res => {
           this.setData({ userInfo: res, logged: true })
-          util.showSuccess('登录成功')
+          this.goToAddPage();
         },
         fail: err => {
           console.error(err)
@@ -116,6 +116,12 @@ Page({
         }
       })
     }
+  },
+  // 添加
+  goToAddPage: function() {
+    wx.navigateTo({
+      url: '/pages/addStory/addStory',
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏

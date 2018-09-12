@@ -7,7 +7,6 @@ Page({
    */
   data: {
     data: {},
-    date: ["2018","08","27"],
     // _item: '',
     LOADING: true,
     // 是否已经喜欢
@@ -28,14 +27,16 @@ Page({
     var self = this;
     const { objectId } = options;
     this.getDataById(objectId).then(function(data){
+      const dateObj = new Date(data.createTime);
       self.setData({
         LOADING: false,
+        date: [dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate()],
         data: {
           title: data.title,
           picture_author: data.author,
           content: data.content,
           text_authors: '胡明飞',
-          img_url: 'http://pic.oh100.com/allimg/201612/3957-16121314125cb.png?x-oss-process=style/qr.oh100'
+          img_url: data.img_url,
         }
       })
     })
