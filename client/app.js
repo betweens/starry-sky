@@ -4,8 +4,6 @@ var config = require('./config')
 
 App({
     onLaunch: function () {
-        const session = qcloud.Session.get();
-        console.log(session);
         qcloud.setLoginUrl(config.service.loginUrl)
     }
 })

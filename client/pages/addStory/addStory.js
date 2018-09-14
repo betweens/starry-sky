@@ -13,7 +13,8 @@ Page({
     opacity: 1,
     HEIGHT: INFO.windowHeight,
     STATUSBAR_HEIGHT: INFO.statusBarHeight,
-    img_url: ''
+    img_url: '',
+    maxLength: 0,
   },
 
   /**
@@ -76,7 +77,15 @@ Page({
       });
     });
   },
-
+ // 限制输入长度
+  limitTextLength: function (event) {
+    const { value } = event.detail;
+    console.log(value.length);
+    if (value.length > 300) return;
+    this.setData({
+      maxLength: value.length,
+    });
+  },
   // 保存提交信息
   submitStoryData: function(params) {
     console.log(params);

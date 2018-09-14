@@ -78,6 +78,8 @@ function login (opts) {
             header: header,
             method: opts.method,
             success (result) {
+
+              console.log('***');
                 const data = result.data;
 
                 if (!data || data.code !== 0 || !data.data || !data.data.skey) {

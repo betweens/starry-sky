@@ -4,7 +4,7 @@ var objectid = require('objectid')
 //查询列表页面
 const selectEasayLustData = async (params) => {
   try {
-    const result = await mysql.select().from('essay').orderBy('createTime', 'desc').limit(10);
+    const result = await mysql.select().from('essay').where('isValid', 1).orderBy('createTime', 'desc').limit(10);
     return result;
   } catch (error) {
     throw error;

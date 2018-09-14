@@ -38,8 +38,8 @@
     </view>
     <view class="weui-cell">
       <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="content"/>
-          <view class="weui-textarea-counter">0/200</view>
+          <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" maxlength="300" name="content" bindinput="limitTextLength"/>
+          <view class="weui-textarea-counter">{{maxLength}}/300</view>
       </view>
     </view>   
  

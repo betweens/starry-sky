@@ -48,7 +48,7 @@ Page({
   },
   // 渲染页面
   renderHomePage: function (result) {
-    wx.clearStorageSync();
+    wx.removeStorageSync("datas");
     wx.setStorageSync('datas', result.data);
     this.setData({
       LOADING: false,
@@ -87,7 +87,9 @@ Page({
   // 登录
   userLogin: function() {
     const session = qcloud.Session.get();
+    console.log(session);
     if (session) {
+      console.log('1111');
       // 第二次登录
       // 或者本地已经有登录态
       // 可使用本函数更新登录态
@@ -119,6 +121,7 @@ Page({
   },
   // 添加
   goToAddPage: function() {
+    util.hideLoading();
     wx.navigateTo({
       url: '/pages/addStory/addStory',
     })

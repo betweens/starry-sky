@@ -5,12 +5,11 @@
 // 此处主机域名修改成腾讯云解决方案分配的域名
 
  //  开发环境
- // var host = 'https://730139795.qcloud.la';
+  //var host = 'https://4ka9f4kc.qcloud.la';
  // 线上环境
- var host = 'https://4ka9f4kc.qcloud.la';
+ var host = 'https://730139795.no-forget.cn';
 // 本地环境
-// var host ='http://localhost:5757';
-
+ //var host ='http://localhost:5757';
 
 var config = {
 
